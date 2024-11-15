@@ -1,0 +1,11 @@
+.hidden {
+  display: none;
+}
+
+.correct-answer {
+  color: green;
+}
+
+.wrong-answer {
+  color: red;
+}

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shar Exam</title>
+    <link rel="stylesheet" href="./main.css" />
+    <script src="./main.js" defer></script>
+  </head>
+  <body>
+    <!-- Modal -->
+    <dialog id="confirm-modal">
+      <p id="modal-title"></p>
+      <button id="modal-confirm" type="button">Confirm</button>
+      <button id="modal-close" type="button">Close</button>
+    </dialog>
+    <!-- / Modal -->
+
+    <!-- Main content -->
+    <main id="main-content-wrapper">
+      <h1>Shar Exam</h1>
+      <hr />
+      <!-- / JSON Form -->
+      <form action="#" id="exam-file-form">
+        <div>
+          <label for="exam-file">Exam</label>
+          <input
+            type="file"
+            accept="application/json"
+            name="exam-file"
+            id="exam-file"
+          />
+        </div>
+
+        <button type="submit">Load Exam File</button>
+      </form>
+      <!-- / JSON Form -->
+    </main>
+    <!-- / Main content -->
+
+    <!-- Exam Wrapper -->
+    <section id="exam-wrapper" class="hidden">
+      <span id="question-title" question-number="1">Question 01</span>
+      <div>
+        <input
+          type="radio"
+          name="question-alternative"
+          class="question-alternative"
+          value="1"
+        />
+        <span class="alternative-text">Alternative 01</span>
+      </div>
+      <div>
+        <input
+          type="radio"
+          name="question-alternative"
+          class="question-alternative"
+          value="2"
+        />
+        <span class="alternative-text">Alternative 02</span>
+      </div>
+      <div>
+        <input
+          type="radio"
+          name="question-alternative"
+          class="question-alternative"
+          value="3"
+        />
+        <span class="alternative-text">Alternative 03</span>
+      </div>
+      <div>
+        <input
+          type="radio"
+          name="question-alternative"
+          class="question-alternative"
+          value="4"
+        />
+        <span class="alternative-text">Alternative 04</span>
+      </div>
+      <div>
+        <input
+          type="radio"
+          name="question-alternative"
+          class="question-alternative"
+          value="5"
+        />
+        <span class="alternative-text">Alternative 05</span>
+      </div>
+
+      <button type="button" id="confirm-question-answer">Confirm</button>
+      <button type="button" id="cancel-exam">Cancel</button>
+    </section>
+    <!-- / Exam Wrapper -->
+
+    <!-- Final Result Wrapper  -->
+    <section id="final-result" class="hidden">
+      <h1>Final Result:</h1>
+      <hr />
+      <!-- Results Wrapper -->
+      <p id="user-points">0/5</p>
+      <div id="answers"></div>
+      <button type="button" id="do-another-exam">Do another exam</button>
+      <!-- / Results Wrapper -->
+    </section>
+    <!-- / Final Result Wrapper  -->
+  </body>
+</html>
