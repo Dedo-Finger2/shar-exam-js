@@ -31,8 +31,7 @@ body {
   color: red;
 }
 
-/* MAIN CONTENT STYLES */
-#main-content-wrapper {
+.fully-centered {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -107,4 +106,30 @@ form:has(#exam-file) {
   font-size: 12px;
   text-align: center;
   margin-top: 6px;
+}
+
+#exam-wrapper {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#question-title {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+#question-alternatives-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#exam-action-buttons-container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
 }
