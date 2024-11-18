@@ -1,6 +1,7 @@
 /* VARIABLES */
 :root {
   --dark-backgrond: #09090b;
+  --dark-border: #27272a;
   --light-text: #fafafa;
   --light-background: #fafafa;
   --light-background-hover: #e2e2e2;
@@ -18,9 +19,17 @@ body {
   color: var(--light-text);
 }
 
+dialog::backdrop {
+  background: rgb(0 0 0 / 50%);
+}
+
 /* SPECIAL RE-USABLE CLASSES */
 .hidden {
   display: none !important;
+}
+
+.flex {
+  display: flex;
 }
 
 .correct-answer {
@@ -108,6 +117,7 @@ form:has(#exam-file) {
   margin-top: 6px;
 }
 
+/* EXAM RELATED */
 #exam-wrapper {
   padding: 2rem;
   display: flex;
@@ -129,6 +139,29 @@ form:has(#exam-file) {
 }
 
 #exam-action-buttons-container {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+/* MODAL STYLES */
+
+#confirm-modal {
+  /* display: flex; */
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 24px 34px 24px;
+  background-color: var(--dark-backgrond);
+  color: var(--light-text);
+  border: 1px solid var(--dark-border);
+  border-radius: 6px;
+}
+
+#modal-title {
+  font-weight: 600;
+}
+
+#modal-button-container {
   display: flex;
   flex-direction: row;
   gap: 24px;

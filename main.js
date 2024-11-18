@@ -187,6 +187,7 @@ function handleUserAnswer() {
 doAnotherExamBtn.addEventListener("click", () => {
   globalModalDialog.setAttribute("action", "do-another-exam")
   globalModalTitleP.textContent = "Wanna do another exam?"
+  globalModalDialog.classList.add("flex")
   globalModalDialog.showModal()
 })
 
