@@ -84,7 +84,6 @@ function loadQuestion() {
 
   examWrapperSection.classList.remove("hidden")
 
-
   questionTitleSpan.textContent = globalExam.questions[currentQuestion].title
 
   for (let i = 0; i <= 4; i++) {
@@ -219,7 +218,6 @@ examFileForm.addEventListener("submit", (e) => {
   reader.readAsText(jsonFile)
   reader.onload = (e) => {
     globalExam = JSON.parse(e.target.result)
-    console.log(jsonFile)
     main()
   }
 })
