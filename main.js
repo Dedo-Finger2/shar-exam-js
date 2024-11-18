@@ -33,6 +33,7 @@ const questionTitleSpan = document.querySelector("#question-title")
 const doAnotherExamBtn = document.querySelector("#do-another-exam")
 const cancelCurrentExamBtn = document.querySelector("#cancel-exam")
 const confirmQuestionAnswerBtn = document.querySelector("#confirm-question-answer")
+const fileNamePreviewSpan = document.querySelector("#selected-file-name")
 
 let userPoints = 0;
 /** @type {Exam} */
@@ -240,4 +241,9 @@ globalModalConfirmBtn.addEventListener("click", () => {
     case "DO-ANOTHER-EXAM": handleDoAnotherExam(); break
   }
   globalModalDialog.close()
+})
+
+examFileInput.addEventListener('change', (e) => {
+  const fileName = e.target.files[0].name
+  fileNamePreviewSpan.textContent = fileName
 })

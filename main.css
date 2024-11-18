@@ -5,6 +5,7 @@
   --light-background: #fafafa;
   --light-background-hover: #e2e2e2;
   --dark-text: #18181b;
+  --gray-text: #bebebe;
 }
 
 /* GLOBAL BODY STYLES */
@@ -98,4 +99,12 @@ form:has(#exam-file) {
 .form-input-container input::file-selector-button:hover {
   background-color: var(--light-background-hover);
   cursor: pointer;
+}
+#selected-file-name {
+  font-style: italic;
+  color: var(--gray-text);
+  font-weight: 600;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 6px;
 }
