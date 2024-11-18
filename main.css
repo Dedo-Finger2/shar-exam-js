@@ -20,7 +20,7 @@ body {
 
 /* SPECIAL RE-USABLE CLASSES */
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .correct-answer {
