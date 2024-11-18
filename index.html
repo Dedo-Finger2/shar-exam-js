@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shar Exam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./main.css" />
     <script src="./main.js" defer></script>
   </head>
@@ -18,11 +24,13 @@
 
     <!-- Main content -->
     <main id="main-content-wrapper">
-      <h1>Shar Exam</h1>
-      <hr />
-      <!-- / JSON Form -->
+      <div id="project-name-and-icon">
+        <span>📝</span>
+        <h1>Shar Exam</h1>
+      </div>
+      <!-- JSON Form -->
       <form action="#" id="exam-file-form">
-        <div>
+        <div class="form-input-container">
           <label for="exam-file">Exam</label>
           <input
             type="file"
