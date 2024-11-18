@@ -154,6 +154,7 @@ function handleDoAnotherExam() {
   questionTitleSpan.setAttribute("question-number", 1)
   document.querySelectorAll(".result").forEach((element) => element.remove())
   userPoints = 0
+  fileNamePreviewSpan.textContent = "No file selected..."
 }
 
 function handleCancelCurrentExam() {
