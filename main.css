@@ -166,3 +166,49 @@ form:has(#exam-file) {
   flex-direction: row;
   gap: 24px;
 }
+
+/* FINAL RESULT */
+
+#final-result {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+#user-points {
+  text-align: right;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+
+#answers {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.final-result-answer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-weight: bold;
+  border: 2px solid var(--dark-border);
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.final-result-answers-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 20px;
+}
+
+.final-result-question-text {
+  margin-bottom: 20px;
+}
+
+.final-result-question-icon-container {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+}
