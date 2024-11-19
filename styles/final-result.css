@@ -1,0 +1,43 @@
+#final-result-container {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+#user-final-points {
+  text-align: right;
+  padding-bottom: 20px;
+  font-weight: bold;
+}
+
+#final-result-answers {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.final-result-answer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-weight: bold;
+  border: 2px solid var(--dark-border);
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.final-result-answers-container {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 20px;
+}
+
+.final-result-question-text {
+  margin-bottom: 20px;
+}
+
+.final-result-question-icon-container {
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+}

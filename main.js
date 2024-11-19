@@ -41,9 +41,11 @@ import {
   ButtonCancelCurrentExam
 } from "./components/exam.js";
 
-const doAnotherExamBtn = document.querySelector("#do-another-exam")
-const answersWrapperDiv = document.querySelector("#answers")
-const userPointsP = document.querySelector("#user-points")
+import {
+  ButtonDoAnotherExam,
+  DivAnswersContainer,
+  ParagraphUserFinalPoints
+} from "./components/final-result.js";
 
 let userPoints = 0;
 /** @type {Exam} */
@@ -138,8 +140,8 @@ function loadFinally() {
     resultDiv.appendChild(correctAnswerNumberSpan)
     resultDiv.appendChild(correctAnswerTextSpan)
 
-    answersWrapperDiv.appendChild(resultDiv)
-    userPointsP.textContent = `${userPoints}/${globalExam.questions.length} points`
+    DivAnswersContainer.appendChild(resultDiv)
+    ParagraphUserFinalPoints.textContent = `${userPoints}/${globalExam.questions.length} points`
   }
 }
 
@@ -196,7 +198,7 @@ function handleUserAnswer() {
   loadQuestion()
 }
 
-doAnotherExamBtn.addEventListener("click", () => {
+ButtonDoAnotherExam.addEventListener("click", () => {
   DialogGlobalModal.setAttribute("action", "do-another-exam")
   ParagraphGlobalModalTitle.textContent = "Wanna do another exam?"
   DialogGlobalModal.classList.add("flex")
