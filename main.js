@@ -23,9 +23,12 @@ import {
   ButtonGlobalModalClose
 } from "./components/global-modal.js";
 
-const examWrapperSection = document.querySelector("#exam-wrapper")
-const mainContentWrapper = document.querySelector("#main-content-wrapper")
-const finalResultWrapperSection = document.querySelector("#final-result")
+import {
+  MainContainer,
+  SectionExamContainer,
+  SectionFinalResultContainer
+} from "./components/main-containers.js";
+
 const answersWrapperDiv = document.querySelector("#answers")
 const userPointsP = document.querySelector("#user-points")
 
@@ -85,7 +88,7 @@ function loadQuestion() {
 
   const questionAlternativesText = document.querySelectorAll(".alternative-text")
 
-  examWrapperSection.classList.remove("hidden")
+  SectionExamContainer.classList.remove("hidden")
 
   questionTitleSpan.textContent = globalExam.questions[currentQuestion].title
 
@@ -93,12 +96,12 @@ function loadQuestion() {
     questionAlternativesText[i].textContent = globalExam.questions[currentQuestion].alternatives[i]
   }
 
-  mainContentWrapper.classList.add("hidden")
+  MainContainer.classList.add("hidden")
 }
 
 function loadFinally() {
-  examWrapperSection.classList.add("hidden")
-  finalResultWrapperSection.classList.remove("hidden")
+  SectionExamContainer.classList.add("hidden")
+  SectionFinalResultContainer.classList.remove("hidden")
 
   for (let i = 0; i <= globalExam.questions.length - 1; i++) {
     const resultDiv = document.createElement("div")
@@ -151,9 +154,9 @@ function handleDoAnotherExam() {
   userAnswers.clear()
   correctTemplate.clear()
   globalExam = {}
-  finalResultWrapperSection.classList.add("hidden")
+  SectionFinalResultContainer.classList.add("hidden")
   examFileInput.value = null
-  mainContentWrapper.classList.remove("hidden")
+  MainContainer.classList.remove("hidden")
   questionTitleSpan.setAttribute("question-number", 1)
   document.querySelectorAll(".result").forEach((element) => element.remove())
   userPoints = 0
@@ -165,9 +168,9 @@ function handleCancelCurrentExam() {
   userAnswers.clear()
   correctTemplate.clear()
   globalExam = {}
-  examWrapperSection.classList.add("hidden")
+  SectionExamContainer.classList.add("hidden")
   examFileInput.value = null
-  mainContentWrapper.classList.remove("hidden")
+  MainContainer.classList.remove("hidden")
   userPoints = 0
 }
 

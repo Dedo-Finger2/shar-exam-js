@@ -1,0 +1,24 @@
+.hidden {
+  display: none !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.correct-answer {
+  color: green;
+}
+
+.wrong-answer {
+  color: red;
+}
+
+.fully-centered {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}

@@ -1,15 +1,8 @@
 @import "./global-modal.css";
+@import "./utils.css";
+@import "./variables.css";
 
 /* VARIABLES */
-:root {
-  --dark-backgrond: #09090b;
-  --dark-border: #27272a;
-  --light-text: #fafafa;
-  --light-background: #fafafa;
-  --light-background-hover: #e2e2e2;
-  --dark-text: #18181b;
-  --gray-text: #bebebe;
-}
 
 /* GLOBAL BODY STYLES */
 body {
@@ -21,35 +14,7 @@ body {
   color: var(--light-text);
 }
 
-dialog::backdrop {
-  background: rgb(0 0 0 / 50%);
-}
-
 /* SPECIAL RE-USABLE CLASSES */
-.hidden {
-  display: none !important;
-}
-
-.flex {
-  display: flex;
-}
-
-.correct-answer {
-  color: green;
-}
-
-.wrong-answer {
-  color: red;
-}
-
-.fully-centered {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 100vh;
-}
 
 /* TITLE IN THE MIDDLE OF THE SCREEN (FIRST SCREEN TO SELECT A FILE) */
 #project-name-and-icon {
@@ -120,7 +85,7 @@ form:has(#exam-file) {
 }
 
 /* EXAM RELATED */
-#exam-wrapper {
+#exam-container {
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -148,7 +113,7 @@ form:has(#exam-file) {
 
 /* FINAL RESULT */
 
-#final-result {
+#final-result-container {
   display: flex;
   flex-direction: column;
   padding: 16px;
