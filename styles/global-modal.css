@@ -18,3 +18,7 @@
   flex-direction: row;
   gap: 24px;
 }
+
+dialog::backdrop {
+  background: rgb(0 0 0 / 50%);
+}
