@@ -29,19 +29,21 @@ import {
   SectionFinalResultContainer
 } from "./components/main-containers.js";
 
-const answersWrapperDiv = document.querySelector("#answers")
-const userPointsP = document.querySelector("#user-points")
-
 import {
   InputExamFile,
   FormExamFileUpload,
   SpanExamFileNamePreview
 } from "./components/exam-file-upload.js";
 
-const questionTitleSpan = document.querySelector("#exam-question-title")
+import {
+  SpanExamQuestionTitle,
+  ButtonExamConfirmQuestionAnswer,
+  ButtonCancelCurrentExam
+} from "./components/exam.js";
+
 const doAnotherExamBtn = document.querySelector("#do-another-exam")
-const cancelCurrentExamBtn = document.querySelector("#exam-cancel")
-const confirmQuestionAnswerBtn = document.querySelector("#exam-confirm-question-answer")
+const answersWrapperDiv = document.querySelector("#answers")
+const userPointsP = document.querySelector("#user-points")
 
 let userPoints = 0;
 /** @type {Exam} */
@@ -79,7 +81,7 @@ function validateImportedJsonFormat() {
 function loadQuestion() {
   const checkedRadio = document.querySelector("input[name='exam-question-alternative']:checked")
   if (checkedRadio) checkedRadio.checked = false
-  let questionNumber = Number(questionTitleSpan.getAttribute("exam-question-number"))
+  let questionNumber = Number(SpanExamQuestionTitle.getAttribute("exam-question-number"))
 
   if (questionNumber > globalExam.questions.length) {
     loadFinally()
@@ -92,7 +94,7 @@ function loadQuestion() {
 
   SectionExamContainer.classList.remove("hidden")
 
-  questionTitleSpan.textContent = globalExam.questions[currentQuestion].title
+  SpanExamQuestionTitle.textContent = globalExam.questions[currentQuestion].title
 
   for (let i = 0; i <= 4; i++) {
     questionAlternativesText[i].textContent = globalExam.questions[currentQuestion].alternatives[i]
@@ -159,7 +161,7 @@ function handleDoAnotherExam() {
   SectionFinalResultContainer.classList.add("hidden")
   InputExamFile.value = null
   MainContainer.classList.remove("hidden")
-  questionTitleSpan.setAttribute("exam-question-number", 1)
+  SpanExamQuestionTitle.setAttribute("exam-question-number", 1)
   document.querySelectorAll(".result").forEach((element) => element.remove())
   userPoints = 0
   SpanExamFileNamePreview.textContent = "No file selected..."
@@ -174,21 +176,22 @@ function handleCancelCurrentExam() {
   InputExamFile.value = null
   MainContainer.classList.remove("hidden")
   userPoints = 0
+  SpanExamFileNamePreview.textContent = "No file selected..."
 }
 
 function handleUserAnswer() {
-  const questionTitleSpan = document.querySelector("#exam-question-title")
+  const SpanExamQuestionTitle = document.querySelector("#exam-question-title")
   const questionAlternativeRadioSelected = document.querySelector("input[name='exam-question-alternative']:checked")
 
-  let questionNumber = Number(questionTitleSpan.getAttribute("exam-question-number"))
+  let questionNumber = Number(SpanExamQuestionTitle.getAttribute("exam-question-number"))
 
   userAnswers.set(questionNumber, Number(questionAlternativeRadioSelected.value))
 
   if (correctTemplate.get(questionNumber).option === Number(questionAlternativeRadioSelected.value)) userPoints++
 
-  questionTitleSpan.setAttribute("exam-question-number", questionNumber + 1)
+  SpanExamQuestionTitle.setAttribute("exam-question-number", questionNumber + 1)
 
-  questionNumber = Number(questionTitleSpan.getAttribute("exam-question-number"))
+  questionNumber = Number(SpanExamQuestionTitle.getAttribute("exam-question-number"))
 
   loadQuestion()
 }
@@ -200,7 +203,7 @@ doAnotherExamBtn.addEventListener("click", () => {
   DialogGlobalModal.showModal()
 })
 
-cancelCurrentExamBtn.addEventListener("click", () => {
+ButtonCancelCurrentExam.addEventListener("click", () => {
   DialogGlobalModal.setAttribute("action", "cancel-current-exam")
   ParagraphGlobalModalTitle.textContent = "Are you sure you want to cancel this exam?"
   DialogGlobalModal.showModal()
@@ -234,7 +237,7 @@ FormExamFileUpload.addEventListener("submit", (e) => {
 })
 
 // Handle user answering
-confirmQuestionAnswerBtn.addEventListener("click", () => {
+ButtonExamConfirmQuestionAnswer.addEventListener("click", () => {
   DialogGlobalModal.setAttribute("action", "confirm-question-answer")
   ParagraphGlobalModalTitle.textContent = "Are you sure you want to confirm this answer?"
   DialogGlobalModal.showModal()
