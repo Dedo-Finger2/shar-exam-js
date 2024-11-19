@@ -1,3 +1,5 @@
+@import "./global-modal.css";
+
 /* VARIABLES */
 :root {
   --dark-backgrond: #09090b;
@@ -139,29 +141,6 @@ form:has(#exam-file) {
 }
 
 #exam-action-buttons-container {
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-}
-
-/* MODAL STYLES */
-
-#confirm-modal {
-  /* display: flex; */
-  flex-direction: column;
-  gap: 24px;
-  padding: 24px 24px 34px 24px;
-  background-color: var(--dark-backgrond);
-  color: var(--light-text);
-  border: 1px solid var(--dark-border);
-  border-radius: 6px;
-}
-
-#modal-title {
-  font-weight: 600;
-}
-
-#modal-button-container {
   display: flex;
   flex-direction: row;
   gap: 24px;

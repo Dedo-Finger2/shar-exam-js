@@ -16,15 +16,18 @@
  * @property { number } correctAnswer
  */
 
+import {
+  DialogGlobalModal,
+  ParagraphGlobalModalTitle,
+  ButtonGlobalModalConfirm,
+  ButtonGlobalModalClose
+} from "./components/global-modal.js";
+
 const examWrapperSection = document.querySelector("#exam-wrapper")
 const mainContentWrapper = document.querySelector("#main-content-wrapper")
 const finalResultWrapperSection = document.querySelector("#final-result")
 const answersWrapperDiv = document.querySelector("#answers")
 const userPointsP = document.querySelector("#user-points")
-const globalModalDialog = document.querySelector("#confirm-modal")
-const globalModalTitleP = document.querySelector("#modal-title")
-const globalModalConfirmBtn = document.querySelector("#modal-confirm")
-const globalMOdalCloseBtn = document.querySelector("#modal-close")
 
 const examFileForm = document.querySelector("#exam-file-form")
 const examFileInput = document.querySelector("#exam-file")
@@ -155,6 +158,7 @@ function handleDoAnotherExam() {
   document.querySelectorAll(".result").forEach((element) => element.remove())
   userPoints = 0
   fileNamePreviewSpan.textContent = "No file selected..."
+  DialogGlobalModal.classList.remove("flex")
 }
 
 function handleCancelCurrentExam() {
@@ -185,16 +189,16 @@ function handleUserAnswer() {
 }
 
 doAnotherExamBtn.addEventListener("click", () => {
-  globalModalDialog.setAttribute("action", "do-another-exam")
-  globalModalTitleP.textContent = "Wanna do another exam?"
-  globalModalDialog.classList.add("flex")
-  globalModalDialog.showModal()
+  DialogGlobalModal.setAttribute("action", "do-another-exam")
+  ParagraphGlobalModalTitle.textContent = "Wanna do another exam?"
+  DialogGlobalModal.classList.add("flex")
+  DialogGlobalModal.showModal()
 })
 
 cancelCurrentExamBtn.addEventListener("click", () => {
-  globalModalDialog.setAttribute("action", "cancel-current-exam")
-  globalModalTitleP.textContent = "Are you sure you want to cancel this exam?"
-  globalModalDialog.showModal()
+  DialogGlobalModal.setAttribute("action", "cancel-current-exam")
+  ParagraphGlobalModalTitle.textContent = "Are you sure you want to cancel this exam?"
+  DialogGlobalModal.showModal()
 })
 
 // Get json file content
@@ -226,21 +230,21 @@ examFileForm.addEventListener("submit", (e) => {
 
 // Handle user answering
 confirmQuestionAnswerBtn.addEventListener("click", () => {
-  globalModalDialog.setAttribute("action", "confirm-question-answer")
-  globalModalTitleP.textContent = "Are you sure you want to confirm this answer?"
-  globalModalDialog.showModal()
+  DialogGlobalModal.setAttribute("action", "confirm-question-answer")
+  ParagraphGlobalModalTitle.textContent = "Are you sure you want to confirm this answer?"
+  DialogGlobalModal.showModal()
 })
 
-globalMOdalCloseBtn.addEventListener("click", () => globalModalDialog.close())
+ButtonGlobalModalClose.addEventListener("click", () => DialogGlobalModal.close())
 
-globalModalConfirmBtn.addEventListener("click", () => {
-  const modalAction = globalModalDialog.getAttribute("action").toUpperCase()
+ButtonGlobalModalConfirm.addEventListener("click", () => {
+  const modalAction = DialogGlobalModal.getAttribute("action").toUpperCase()
   switch (modalAction) {
     case "CONFIRM-QUESTION-ANSWER": handleUserAnswer(); break
     case "CANCEL-CURRENT-EXAM": handleCancelCurrentExam(); break
     case "DO-ANOTHER-EXAM": handleDoAnotherExam(); break
   }
-  globalModalDialog.close()
+  DialogGlobalModal.close()
 })
 
 examFileInput.addEventListener('change', (e) => {
