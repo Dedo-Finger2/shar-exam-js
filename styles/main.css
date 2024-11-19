@@ -1,6 +1,7 @@
 @import "./global-modal.css";
 @import "./utils.css";
 @import "./variables.css";
+@import "./exam-file-upload.css";
 
 /* VARIABLES */
 
@@ -42,46 +43,6 @@ button {
 button:hover {
   background-color: var(--light-background-hover);
   cursor: pointer;
-}
-
-/* SELECT JSON FILE FORM STYLES */
-form:has(#exam-file) {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-.form-input-container {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  gap: 4px;
-}
-.form-input-container label {
-  font-weight: bold;
-}
-.form-input-container input {
-  font-weight: bold;
-}
-.form-input-container input::file-selector-button {
-  font-weight: bold;
-  background-color: var(--light-background);
-  border: none;
-  padding: 7px;
-  width: 100%;
-  border-radius: 5px;
-  transition: background-color ease-in-out 0.2s;
-}
-.form-input-container input::file-selector-button:hover {
-  background-color: var(--light-background-hover);
-  cursor: pointer;
-}
-#selected-file-name {
-  font-style: italic;
-  color: var(--gray-text);
-  font-weight: 600;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 6px;
 }
 
 /* EXAM RELATED */

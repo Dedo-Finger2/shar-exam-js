@@ -1,0 +1,38 @@
+form:has(#exam-file-input) {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.exam-file-form-input-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 4px;
+}
+.exam-file-form-input-container label {
+  font-weight: bold;
+}
+.exam-file-form-input-container input {
+  font-weight: bold;
+}
+.exam-file-form-input-container input::file-selector-button {
+  font-weight: bold;
+  background-color: var(--light-background);
+  border: none;
+  padding: 7px;
+  width: 100%;
+  border-radius: 5px;
+  transition: background-color ease-in-out 0.2s;
+}
+.exam-file-form-input-container input::file-selector-button:hover {
+  background-color: var(--light-background-hover);
+  cursor: pointer;
+}
+#selected-exam-file-name-preview {
+  font-style: italic;
+  color: var(--gray-text);
+  font-weight: 600;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 6px;
+}

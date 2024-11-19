@@ -31,16 +31,16 @@
         <h1>Shar Exam</h1>
       </div>
       <!-- JSON Form -->
-      <form action="#" id="exam-file-form">
-        <div class="form-input-container">
-          <label for="exam-file">Exam</label>
+      <form id="exam-file-form">
+        <div class="exam-file-form-input-container">
+          <label for="exam-file-input">Exam</label>
           <input
             type="file"
             accept="application/json"
-            name="exam-file"
-            id="exam-file"
+            name="exam-file-input"
+            id="exam-file-input"
           />
-          <span id="selected-file-name">No file selected...</span>
+          <span id="selected-exam-file-name-preview">No file selected...</span>
         </div>
 
         <button type="submit">Load Exam File</button>
@@ -51,58 +51,58 @@
 
     <!-- Exam Wrapper -->
     <section id="exam-container" class="hidden">
-      <span id="question-title" question-number="1">Question 01</span>
-      <div id="question-alternatives-container">
+      <span id="exam-question-title" exam-question-number="1">Question 01</span>
+      <div id="exam-question-alternatives-container">
         <div>
           <input
             type="radio"
-            name="question-alternative"
-            class="question-alternative"
+            name="exam-question-alternative"
+            class="exam-question-alternative"
             value="1"
           />
-          <span class="alternative-text">Alternative 01</span>
+          <span class="exam-question-alternative-text">Alternative 01</span>
         </div>
         <div>
           <input
             type="radio"
-            name="question-alternative"
-            class="question-alternative"
+            name="exam-question-alternative"
+            class="exam-question-alternative"
             value="2"
           />
-          <span class="alternative-text">Alternative 02</span>
+          <span class="exam-question-alternative-text">Alternative 02</span>
         </div>
         <div>
           <input
             type="radio"
-            name="question-alternative"
-            class="question-alternative"
+            name="exam-question-alternative"
+            class="exam-question-alternative"
             value="3"
           />
-          <span class="alternative-text">Alternative 03</span>
+          <span class="exam-question-alternative-text">Alternative 03</span>
         </div>
         <div>
           <input
             type="radio"
-            name="question-alternative"
-            class="question-alternative"
+            name="exam-question-alternative"
+            class="exam-question-alternative"
             value="4"
           />
-          <span class="alternative-text">Alternative 04</span>
+          <span class="exam-question-alternative-text">Alternative 04</span>
         </div>
         <div>
           <input
             type="radio"
-            name="question-alternative"
-            class="question-alternative"
+            name="exam-question-alternative"
+            class="exam-question-alternative"
             value="5"
           />
-          <span class="alternative-text">Alternative 05</span>
+          <span class="exam-question-alternative-text">Alternative 05</span>
         </div>
       </div>
 
       <div id="exam-action-buttons-container">
-        <button type="button" id="confirm-question-answer">Confirm</button>
-        <button type="button" id="cancel-exam">Cancel</button>
+        <button type="button" id="exam-confirm-question-answer">Confirm</button>
+        <button type="button" id="exam-cancel">Cancel</button>
       </div>
     </section>
     <!-- / Exam Wrapper -->

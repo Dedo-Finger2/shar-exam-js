@@ -32,14 +32,16 @@ import {
 const answersWrapperDiv = document.querySelector("#answers")
 const userPointsP = document.querySelector("#user-points")
 
-const examFileForm = document.querySelector("#exam-file-form")
-const examFileInput = document.querySelector("#exam-file")
-const questionAnswerForm = document.querySelector("#question-answer-form")
-const questionTitleSpan = document.querySelector("#question-title")
+import {
+  InputExamFile,
+  FormExamFileUpload,
+  SpanExamFileNamePreview
+} from "./components/exam-file-upload.js";
+
+const questionTitleSpan = document.querySelector("#exam-question-title")
 const doAnotherExamBtn = document.querySelector("#do-another-exam")
-const cancelCurrentExamBtn = document.querySelector("#cancel-exam")
-const confirmQuestionAnswerBtn = document.querySelector("#confirm-question-answer")
-const fileNamePreviewSpan = document.querySelector("#selected-file-name")
+const cancelCurrentExamBtn = document.querySelector("#exam-cancel")
+const confirmQuestionAnswerBtn = document.querySelector("#exam-confirm-question-answer")
 
 let userPoints = 0;
 /** @type {Exam} */
@@ -75,9 +77,9 @@ function validateImportedJsonFormat() {
 }
 
 function loadQuestion() {
-  const checkedRadio = document.querySelector("input[name='question-alternative']:checked")
+  const checkedRadio = document.querySelector("input[name='exam-question-alternative']:checked")
   if (checkedRadio) checkedRadio.checked = false
-  let questionNumber = Number(questionTitleSpan.getAttribute("question-number"))
+  let questionNumber = Number(questionTitleSpan.getAttribute("exam-question-number"))
 
   if (questionNumber > globalExam.questions.length) {
     loadFinally()
@@ -86,7 +88,7 @@ function loadQuestion() {
 
   const currentQuestion = questionNumber - 1
 
-  const questionAlternativesText = document.querySelectorAll(".alternative-text")
+  const questionAlternativesText = document.querySelectorAll(".exam-question-alternative-text")
 
   SectionExamContainer.classList.remove("hidden")
 
@@ -155,12 +157,12 @@ function handleDoAnotherExam() {
   correctTemplate.clear()
   globalExam = {}
   SectionFinalResultContainer.classList.add("hidden")
-  examFileInput.value = null
+  InputExamFile.value = null
   MainContainer.classList.remove("hidden")
-  questionTitleSpan.setAttribute("question-number", 1)
+  questionTitleSpan.setAttribute("exam-question-number", 1)
   document.querySelectorAll(".result").forEach((element) => element.remove())
   userPoints = 0
-  fileNamePreviewSpan.textContent = "No file selected..."
+  SpanExamFileNamePreview.textContent = "No file selected..."
   DialogGlobalModal.classList.remove("flex")
 }
 
@@ -169,24 +171,24 @@ function handleCancelCurrentExam() {
   correctTemplate.clear()
   globalExam = {}
   SectionExamContainer.classList.add("hidden")
-  examFileInput.value = null
+  InputExamFile.value = null
   MainContainer.classList.remove("hidden")
   userPoints = 0
 }
 
 function handleUserAnswer() {
-  const questionTitleSpan = document.querySelector("#question-title")
-  const questionAlternativeRadioSelected = document.querySelector("input[name='question-alternative']:checked")
+  const questionTitleSpan = document.querySelector("#exam-question-title")
+  const questionAlternativeRadioSelected = document.querySelector("input[name='exam-question-alternative']:checked")
 
-  let questionNumber = Number(questionTitleSpan.getAttribute("question-number"))
+  let questionNumber = Number(questionTitleSpan.getAttribute("exam-question-number"))
 
   userAnswers.set(questionNumber, Number(questionAlternativeRadioSelected.value))
 
   if (correctTemplate.get(questionNumber).option === Number(questionAlternativeRadioSelected.value)) userPoints++
 
-  questionTitleSpan.setAttribute("question-number", questionNumber + 1)
+  questionTitleSpan.setAttribute("exam-question-number", questionNumber + 1)
 
-  questionNumber = Number(questionTitleSpan.getAttribute("question-number"))
+  questionNumber = Number(questionTitleSpan.getAttribute("exam-question-number"))
 
   loadQuestion()
 }
@@ -205,15 +207,15 @@ cancelCurrentExamBtn.addEventListener("click", () => {
 })
 
 // Get json file content
-examFileForm.addEventListener("submit", (e) => {
+FormExamFileUpload.addEventListener("submit", (e) => {
   e.preventDefault()
 
-  if (examFileInput.files.length === 0) {
+  if (InputExamFile.files.length === 0) {
     alert("Please select a file.")
     return
   }
 
-  const jsonFile = examFileInput.files[0];
+  const jsonFile = InputExamFile.files[0];
   const oneMebabyte = 1048576
   const jsonFileSizeInMegabytes = jsonFile.size / oneMebabyte
   const maximumJsonFileSizeInMegabytes = 5.0
@@ -250,7 +252,7 @@ ButtonGlobalModalConfirm.addEventListener("click", () => {
   DialogGlobalModal.close()
 })
 
-examFileInput.addEventListener('change', (e) => {
+InputExamFile.addEventListener('change', (e) => {
   const fileName = e.target.files[0].name
-  fileNamePreviewSpan.textContent = fileName
+  SpanExamFileNamePreview.textContent = fileName
 })
