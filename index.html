@@ -25,7 +25,7 @@
     <!-- / Modal -->
 
     <!-- Main content -->
-    <main id="main-content-container" class="fully-centered">
+    <main id="main-content-container" class="hidden fully-centered">
       <div id="project-name-and-icon">
         <span>📝</span>
         <h1>Shar Exam</h1>
@@ -108,7 +108,7 @@
     <!-- / Exam Wrapper -->
 
     <!-- Final Result Wrapper  -->
-    <section id="final-result-container" class="hidden">
+    <section id="final-result-container" class="">
       <h1>Final Result</h1>
       <!-- Results Wrapper -->
       <span id="user-final-points">0/5</span>
@@ -120,31 +120,17 @@
           </div>
           <div class="final-result-answers-container">
             <div class="final-result-correct-answer">
+              <span class="final-result-answer-icon">✅</span>
               <span class="final-result-question-correct-answer-text"
-                >Alternativa 02</span
+                >Alternativa 03</span
               >
             </div>
             <div class="final-result-user-answer">
+              <span class="final-result-answer-icon">👤</span>
               <span class="final-result-user-answer-text">Alternativa 03</span>
             </div>
           </div>
         </div>
-        <div class="final-result-answer-container">
-          <div class="final-result-question-icon-container">
-            <span class="final-result-answer-icon">❌</span>
-            <span class="final-result-question-text">Pergunta 01</span>
-          </div>
-          <div class="final-result-answers-container">
-            <div class="final-result-correct-answer">
-              <span class="final-result-question-correct-answer-text"
-                >Alternativa 02</span
-              >
-            </div>
-            <div class="final-result-user-answer">
-              <span class="final-result-user-answer-text">Alternativa 03</span>
-            </div>
-          </div>
-        </div
       </div>
       <button type="button" id="do-another-exam">Do another exam</button>
       <!-- / Results Wrapper -->
