@@ -5,7 +5,9 @@
 }
 
 #user-final-points {
-  text-align: right;
+  display: flex;
+  gap: 8px;
+  align-items: center;
   padding-bottom: 20px;
   font-weight: bold;
 }
@@ -48,4 +50,14 @@
   display: flex;
   flex-direction: row;
   gap: 15px;
+}
+
+#do-another-exam {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+  width: 50%;
 }
