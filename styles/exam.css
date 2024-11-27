@@ -5,10 +5,14 @@
   gap: 20px;
 }
 
-#exam-question-title {
+#exam-question-title-container {
   display: flex;
+  flex-direction: row;
   gap: 8px;
   align-items: center;
+}
+
+#exam-question-title {
   font-weight: 700;
   font-size: 20px;
 }
