@@ -4,9 +4,10 @@
   padding: 16px;
 }
 
-#user-final-points {
+#user-final-points-container {
   display: flex;
-  gap: 8px;
+  flex-direction: row;
+  gap: 12px;
   align-items: center;
   padding-bottom: 20px;
   font-weight: bold;
@@ -26,6 +27,8 @@
   border: 2px solid var(--dark-border);
   border-radius: 6px;
   padding: 16px;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .final-result-answers-container {
