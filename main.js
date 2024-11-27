@@ -106,41 +106,74 @@ function loadQuestion() {
 }
 
 function loadFinally() {
+  console.log(userAnswers)
+  console.log(globalExam)
+
   SectionExamContainer.classList.add("hidden")
   SectionFinalResultContainer.classList.remove("hidden")
 
   for (let i = 0; i <= globalExam.questions.length - 1; i++) {
-    const resultDiv = document.createElement("div")
-    resultDiv.classList.add("result")
+    const finalResultAnswerContainer = document.createElement("div")
+    finalResultAnswerContainer.classList.add("final-result-answer-container")
 
-    const questionNumberSpan = document.createElement("span")
-    questionNumberSpan.classList.add("question-number")
-    questionNumberSpan.textContent = i + 1
+    const finalResultQuestionIconContainer = document.createElement("div")
+    finalResultQuestionIconContainer.classList.add("final-result-question-icon-container")
 
-    const userAnswerSpan = document.createElement("span")
-    userAnswerSpan.classList.add("user-answer")
-    userAnswerSpan.textContent = userAnswers.get(i + 1)
+    const finalResultCheckIcon = document.createElement("i")
+    finalResultCheckIcon.classList.add("fa-solid")
+
+    const questionText = document.createElement("span")
+    questionText.classList.add("final-result-question-text")
+    questionText.textContent = `${i + 1} - ${globalExam.questions[i].title}`
+
+    const finalResultAnswersTextContainer = document.createElement("div")
+    finalResultAnswersTextContainer.classList.add("final-result-answers-container")
+
+    const userAnswerContainer = document.createElement("div")
+    userAnswerContainer.classList.add("final-result-correct-answer")
+
+    const userIcon = document.createElement("i")
+    userIcon.classList.add("fa-solid")
+    userIcon.classList.add("fa-user")
+
+    const userAnswerText = document.createElement("span")
+    userAnswerText.classList.add("final-result-user-answer-text")
+    userAnswerText.textContent = `${userAnswers.get(i + 1)} - ${globalExam.questions[i].alternatives[userAnswers.get(i + 1) - 1]}`
+
+    userAnswerContainer.appendChild(userIcon)
+    userAnswerContainer.appendChild(userAnswerText)
+
+    finalResultAnswersTextContainer.appendChild(userAnswerContainer)
 
     if (userAnswers.get(i + 1) === correctTemplate.get(i + 1).option) {
-      userAnswerSpan.classList.add("correct-answer")
+      finalResultCheckIcon.classList.add("fa-check")
     } else {
-      userAnswerSpan.classList.add("wrong-answer")
+      finalResultCheckIcon.classList.add("fa-xmark")
+
+      const correctAnswerContainer = document.createElement("div")
+      correctAnswerContainer.classList.add("final-result-correct-answer")
+
+      const correctAnswerIcon = document.createElement("i")
+      correctAnswerIcon.classList.add("fa-solid")
+      correctAnswerIcon.classList.add("fa-check")
+
+      const correctAnswerText = document.createElement("span")
+      correctAnswerText.classList.add("final-result-question-correct-answer-text")
+      correctAnswerText.textContent = `${correctTemplate.get(i + 1).option} - ${correctTemplate.get(i + 1).title}`
+
+      correctAnswerContainer.appendChild(correctAnswerIcon)
+      correctAnswerContainer.appendChild(correctAnswerText)
+
+      finalResultAnswersTextContainer.appendChild(correctAnswerContainer)
     }
 
-    const correctAnswerNumberSpan = document.createElement("span")
-    correctAnswerNumberSpan.classList.add("correct-answer-number")
-    correctAnswerNumberSpan.textContent = correctTemplate.get(i + 1).option
+    finalResultQuestionIconContainer.appendChild(finalResultCheckIcon)
+    finalResultQuestionIconContainer.appendChild(questionText)
 
-    const correctAnswerTextSpan = document.createElement("span")
-    correctAnswerTextSpan.classList.add("correct-answer-text")
-    correctAnswerTextSpan.textContent = correctTemplate.get(i + 1).title
+    finalResultAnswerContainer.appendChild(finalResultQuestionIconContainer)
+    finalResultAnswerContainer.appendChild(finalResultAnswersTextContainer)
 
-    resultDiv.appendChild(questionNumberSpan)
-    resultDiv.appendChild(userAnswerSpan)
-    resultDiv.appendChild(correctAnswerNumberSpan)
-    resultDiv.appendChild(correctAnswerTextSpan)
-
-    DivAnswersContainer.appendChild(resultDiv)
+    DivAnswersContainer.appendChild(finalResultAnswerContainer)
     ParagraphUserFinalPoints.textContent = `${userPoints}/${globalExam.questions.length} points`
   }
 }

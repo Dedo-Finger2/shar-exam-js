@@ -16,7 +16,7 @@
 #final-result-answers {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 12px;
 }
 
 .final-result-answer-container {
@@ -27,8 +27,14 @@
   border: 2px solid var(--dark-border);
   border-radius: 6px;
   padding: 16px;
-  margin-top: 24px;
-  margin-bottom: 24px;
+}
+
+.final-result-answer-container:first-child {
+  margin-top: 20px;
+}
+
+.final-result-answer-container:last-child {
+  margin-bottom: 20px;
 }
 
 .final-result-answers-container {
@@ -52,7 +58,7 @@
 .final-result-user-answer {
   display: flex;
   flex-direction: row;
-  gap: 15px;
+  gap: 14px;
 }
 
 #do-another-exam {
