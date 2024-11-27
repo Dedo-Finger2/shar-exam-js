@@ -27,88 +27,75 @@
     <!-- Main content -->
     <main id="main-content-container" class="hidden fully-centered">
       <div id="project-name-and-icon">
-        <span>📝</span>
-        <h1>Shar Exam</h1>
+        <h1>
+          <i class="fa-solid fa-note-sticky"></i>
+          Shar Exam
+        </h1>
       </div>
       <!-- JSON Form -->
       <form id="exam-file-form">
         <div class="exam-file-form-input-container">
-          <label for="exam-file-input">Exam</label>
+          <label for="exam-file-input">Exam file:</label>
           <input
             type="file"
             accept="application/json"
             name="exam-file-input"
             id="exam-file-input"
           />
-          <span id="selected-exam-file-name-preview">No file selected...</span>
+          <span id="selected-exam-file-name-preview">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            No file selected...
+          </span>
         </div>
 
-        <button type="submit">Load Exam File</button>
+        <button type="submit" id="load-exam-file-btn">
+          <i class="fa-solid fa-upload"></i>
+          Load Exam File
+        </button>
       </form>
       <!-- / JSON Form -->
     </main>
     <!-- / Main content -->
 
     <!-- Exam Wrapper -->
-    <section id="exam-container" class="hidden">
-      <span id="exam-question-title" exam-question-number="1">Question 01</span>
+    <section id="exam-container" class="">
+      <span id="exam-question-title" exam-question-number="1">
+        <i class="fa-solid fa-circle-question"></i>
+        Question 01
+      </span>
       <div id="exam-question-alternatives-container">
-        <div>
-          <input
-            type="radio"
-            name="exam-question-alternative"
-            class="exam-question-alternative"
-            value="1"
-          />
-          <span class="exam-question-alternative-text">Alternative 01</span>
+        <div class="alternative">
+          <span class="alternative-text">Alternative 01</span>
         </div>
-        <div>
-          <input
-            type="radio"
-            name="exam-question-alternative"
-            class="exam-question-alternative"
-            value="2"
-          />
-          <span class="exam-question-alternative-text">Alternative 02</span>
+        <div class="alternative">
+          <span class="alternative-text">Alternative 02</span>
         </div>
-        <div>
-          <input
-            type="radio"
-            name="exam-question-alternative"
-            class="exam-question-alternative"
-            value="3"
-          />
-          <span class="exam-question-alternative-text">Alternative 03</span>
+        <div class="alternative">
+          <span class="alternative-text">Alternative 03</span>
         </div>
-        <div>
-          <input
-            type="radio"
-            name="exam-question-alternative"
-            class="exam-question-alternative"
-            value="4"
-          />
-          <span class="exam-question-alternative-text">Alternative 04</span>
+        <div class="alternative">
+          <span class="alternative-text">Alternative 04</span>
         </div>
-        <div>
-          <input
-            type="radio"
-            name="exam-question-alternative"
-            class="exam-question-alternative"
-            value="5"
-          />
-          <span class="exam-question-alternative-text">Alternative 05</span>
+        <div class="alternative">
+          <span class="alternative-text">Alternative 05</span>
         </div>
       </div>
 
       <div id="exam-action-buttons-container">
-        <button type="button" id="exam-confirm-question-answer">Confirm</button>
-        <button type="button" id="exam-cancel">Cancel</button>
+        <button type="button" id="exam-confirm-question-answer">
+          <i class="fa-solid fa-check"></i>
+          Confirm
+        </button>
+        <button type="button" id="exam-cancel">
+          <i class="fa-solid fa-xmark"></i>
+          Cancel
+        </button>
       </div>
     </section>
     <!-- / Exam Wrapper -->
 
     <!-- Final Result Wrapper  -->
-    <section id="final-result-container" class="">
+    <section id="final-result-container" class="hidden">
       <h1>Final Result</h1>
       <!-- Results Wrapper -->
       <span id="user-final-points">

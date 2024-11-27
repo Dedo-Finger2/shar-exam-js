@@ -6,6 +6,9 @@
 }
 
 #exam-question-title {
+  display: flex;
+  gap: 8px;
+  align-items: center;
   font-weight: 700;
   font-size: 20px;
 }
@@ -22,4 +25,34 @@
   display: flex;
   flex-direction: row;
   gap: 24px;
+}
+
+#exam-confirm-question-answer,
+#exam-cancel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.alternative {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 16px;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+.alternative-text {
+  font-weight: 400;
+}
+
+.alternative:hover {
+  cursor: pointer;
+}
+
+/* FIX: Não funciona */
+.selectedd-alternative {
+  border: 1px solid red !important;
 }

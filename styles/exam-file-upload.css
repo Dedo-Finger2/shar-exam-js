@@ -29,10 +29,20 @@ form:has(#exam-file-input) {
   cursor: pointer;
 }
 #selected-exam-file-name-preview {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
   font-style: italic;
   color: var(--gray-text);
   font-weight: 600;
   font-size: 12px;
   text-align: center;
   margin-top: 6px;
+}
+#load-exam-file-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
 }

@@ -261,3 +261,5 @@ InputExamFile.addEventListener('change', (e) => {
   const fileName = e.target.files[0].name
   SpanExamFileNamePreview.textContent = fileName
 })
+
+import("./modules/alternative-select/events.js");
