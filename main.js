@@ -81,8 +81,8 @@ function validateImportedJsonFormat() {
 }
 
 function loadQuestion() {
-  const checkedRadio = document.querySelector("input[name='exam-question-alternative']:checked")
-  if (checkedRadio) checkedRadio.checked = false
+  const checkedAlternative = document.querySelector("div[class='selected-alternateive']")
+  if (checkedAlternative) checkedAlternative.classList.remove("selected-alternateive")
   let questionNumber = Number(SpanExamQuestionTitle.getAttribute("exam-question-number"))
 
   if (questionNumber > globalExam.questions.length) {
@@ -92,7 +92,7 @@ function loadQuestion() {
 
   const currentQuestion = questionNumber - 1
 
-  const questionAlternativesText = document.querySelectorAll(".exam-question-alternative-text")
+  const questionAlternativesText = document.querySelectorAll(".alternative-text")
 
   SectionExamContainer.classList.remove("hidden")
 
@@ -183,13 +183,13 @@ function handleCancelCurrentExam() {
 
 function handleUserAnswer() {
   const SpanExamQuestionTitle = document.querySelector("#exam-question-title")
-  const questionAlternativeRadioSelected = document.querySelector("input[name='exam-question-alternative']:checked")
+  const questionAlternativeSelected = document.querySelector(".selected-alternative")
 
   let questionNumber = Number(SpanExamQuestionTitle.getAttribute("exam-question-number"))
 
-  userAnswers.set(questionNumber, Number(questionAlternativeRadioSelected.value))
+  userAnswers.set(questionNumber, Number(questionAlternativeSelected.getAttribute("alternative-number")))
 
-  if (correctTemplate.get(questionNumber).option === Number(questionAlternativeRadioSelected.value)) userPoints++
+  if (correctTemplate.get(questionNumber).option === Number(questionAlternativeSelected.getAttribute("alternative-number"))) userPoints++
 
   SpanExamQuestionTitle.setAttribute("exam-question-number", questionNumber + 1)
 
