@@ -3,6 +3,9 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  border: 2px solid red;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 #exam-question-title-container {
@@ -54,6 +57,18 @@
 
 .alternative:hover {
   cursor: pointer;
+}
+
+@media screen and (min-width: 750px) {
+  #exam-container {
+    width: 900px;
+    margin: 0 auto;
+  }
+
+  #exam-question-alternatives-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Três colunas */
+  }
 }
 
 /* FIX: Não funciona */

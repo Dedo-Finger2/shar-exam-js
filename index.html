@@ -25,7 +25,7 @@
     <!-- / Modal -->
 
     <!-- Main content -->
-    <main id="main-content-container" class="fully-centered">
+    <main id="main-content-container" class="hidden fully-centered">
       <div id="project-name-and-icon">
         <h1>
           <i class="fa-solid fa-note-sticky"></i>
@@ -58,7 +58,7 @@
     <!-- / Main content -->
 
     <!-- Exam Wrapper -->
-    <section id="exam-container" class="hidden">
+    <section id="exam-container" class="">
       <div id="exam-question-title-container">
         <i class="fa-solid fa-circle-question"></i>
         <span id="exam-question-title" exam-question-number="1"
@@ -104,7 +104,28 @@
         <i class="fa-solid fa-star"></i>
         <span id="user-final-points">0/5</span>
       </div>
-      <div id="final-result-answers"></div>
+      <div id="final-result-answers">
+        <div class="final-result-answer-container">
+          <div class="final-result-question-icon-container">
+            <i class="fa-solid fa-check"></i>
+            <span class="final-result-question-text">Pergunta 01</span>
+          </div>
+
+          <div class="final-result-answers-container">
+            <div class="final-result-correct-answer">
+              <i class="fa-solid fa-robot"></i>
+              <span class="final-result-question-correct-answer-text"
+                >Alternativa 03</span
+              >
+            </div>
+
+            <div class="final-result-user-answer">
+              <i class="fa-solid fa-user"></i>
+              <span class="final-result-user-answer-text">Alternativa 03</span>
+            </div>
+          </div>
+        </div>
+      </div>
       <button type="button" id="do-another-exam">
         <i class="fa-solid fa-rotate-left"></i>
         Do another exam
